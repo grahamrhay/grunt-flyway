@@ -29,16 +29,18 @@ module.exports = function(grunt) {
 
         // Windows CLASSPATH separator
         var classPathSeparator = ';';
+        var classPathEnvVar = '%CLASSPATH%';
 
         // Unix CLASSPATH separator 
         if(Os.platform() === 'linux' || Os.platform() === 'darwin') {
             
             classPathSeparator = ':';
+            classPathEnvVar = '$CLASSPATH';
         
         }
 
         // Creates the Java CLASSPATH used to run Flyway
-        var javaClasspath = flywayBinPath + '/flyway-commandline-2.1.1.jar' + classPathSeparator;
+        var javaClasspath = classPathEnvVar + classPathSeparator + flywayBinPath + '/flyway-commandline-2.1.1.jar' + classPathSeparator;
         javaClasspath = javaClasspath + flywayBinPath + '/flyway-core-2.1.1.jar';
 
         // Object used to configure the Flyway Commands which are available with the Grunt Flyway Plugin
