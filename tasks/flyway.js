@@ -139,7 +139,7 @@ module.exports = function(grunt) {
         }
 
         // Create the Console Command line used to execute the Flyway Command Line program
-        var flywayCommand = 'java -cp ' + javaClasspath + ' com.googlecode.flyway.commandline.Main ' + this.data.command;
+        var flywayCommand = 'java -cp "' + javaClasspath + '" com.googlecode.flyway.commandline.Main ' + this.data.command;
 
         // Gets valid command line options associated to the Flyway Command which have been entered
         var commandOptions = availableCommands[this.data.command];
